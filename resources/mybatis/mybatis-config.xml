@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="config/db.properties">
+        <property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true" />
+        <!-- 启用默认值特性 -->
+        <property name="org.apache.ibatis.parsing.PropertyParser.default-value-separator" value="?:" />
+        <!-- 修改默认值的分隔符 -->
+        <property name="username" value="root" />
+        <property name="password" value="123456" />
+    </properties>
+<!--     <settings>
+        <setting name="defaultStatementTimeout" value="25000" />
+    </settings> -->
+    <!-- 别名配置 -->
+    <!-- <typeAlias type="domain.Blog" alias="Blog" /> -->
+    <!-- typeHandlers 例子 -->
+    <typeHandlers>
+        <package name="mybatis.typeHandlers" />
+        <!-- 查找包下所有处理器 -->
+        <!-- <typeHandler handler="mybatis.typeHandlers.ExampleTypeHandler" /> -->
+        <!-- 按类名指定 -->
+    </typeHandlers>
+    <!-- objectFactory 例子 -->
+    <objectFactory type="mybatis.objectFactory.ExampleObjectFactory">
+        <property name="someProperty" value="100" />
+    </objectFactory>
+    <!-- plugs 例子 -->
+<!--     <plugins>
+        <plugin interceptor="mybatis.plugs.ExamplePlugin">
+            <property name="someProperty" value="100" />
+        </plugin>
+    </plugins> -->
+    <!-- username, password 使用property值替换，其他属性由db.properties中配置值替换 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver:com.mysql.jdbc.Driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username:root}" />
+                <!-- 如果没配置username 
+					username为root -->
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+        <environment id="test">
+            <transactionManager type="MANAGED">
+                <property name="closeConnection" value="false" />
+            </transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver:}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username:root}" />
+                <!-- 如果没配置username 
+					username为root -->
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- databaseIdProvider 例子 -->
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="SQL Server" value="sqlserver" />
+        <property name="DB2" value="db2" />
+        <property name="Oracle" value="oracle" />
+    </databaseIdProvider>
+    <!-- 映射器资源引用 -->
+    <mappers>
+        <mapper resource="mybatis/mapper/BlogMapper.xml" />
+        <!-- <mapper url="file:///var/mybatis/BlogMapper.xml"/> -->
+        <!-- <mapper class="mybatis/mapper/BlogMapper"/> -->
+        <!-- <package name="mybatis.mapper"/> -->
+    </mappers>
+</configuration>
