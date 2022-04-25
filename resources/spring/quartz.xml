@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-lazy-init="true">
+ 
+	<bean id="timerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		<property name="triggers">
+			<list>
+				<ref local="cronTrigger"/> <!-- TriggerBean/JobDetailBean/TaskBean    触发器与任务是必须的。 Task可以自定义 由任务Bean执行 -->
+				<ref local="cronTrigger1"/>
+			</list>
+		</property>
+	</bean>
+ 
+ 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="timedTask"/>
+		<property name="cronExpression" value="0/5 * * * * ?"></property>
+	</bean>
+	<bean id="timedTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="name" value="timedTask"/>
+		<property name="group" value="myGroup"/>
+		<property name="description" value="timedTask"/>
+		<property name="jobClass" value="quartz.TimedTask"/>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="task" value-ref="task" />
+			</map>
+		</property>
+	</bean>
+	<bean id="task" class="quartz.Task">
+		<property name="name" value="task"></property>
+	</bean>
+	
+ 
+ 
+ 	<bean id="cronTrigger1" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="minuteJob"/>
+		<property name="cronExpression" value="0/10 * * * * ?"></property>
+	</bean>
+	<bean id="minuteJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="name" value="minuteJob"/>
+		<property name="group" value="myGroup"/>
+		<property name="description" value="minuteJob"/>
+		<property name="jobClass" value="quartz.MinuteJob"/>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="task" value-ref="task1" />
+			</map>
+		</property>
+	</bean>
+	<bean id="task1" class="quartz.Task1">
+		<property name="name" value="task"></property>
+	</bean>
+	
+
+</beans>
