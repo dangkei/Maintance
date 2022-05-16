@@ -31,7 +31,7 @@ public class UpdateDocFileTest {
 	 */
 	private static void updateDocReceive(DocReceiveAction docReceiveExtentAction, DocSendAction docSendExtentAction) {
 		// 公文收文id
-		String docReceiveId = "1518046609529704449"; // 1507237513679343617
+		String docReceiveId = "1525037205444169730"; // 1507237513679343617
 
 		ActionResultInfo<AschemaDocReceive> resultInfo = docReceiveExtentAction.loadDocReceive(docReceiveId);
 		AschemaDocReceive docReceive = resultInfo.getResult(); // 获得收文文档实例
@@ -47,8 +47,8 @@ public class UpdateDocFileTest {
 		// docSend.setReceivers(Arrays.asList("zh"));
 		// docSend.setReceivedUnitName(null);
 	    // docReceive.setDocNo("1386");
-		// docSend.setDocTitle("关于向市物资保障及保供稳价组报送区级政务储备摸底和储备计划编制情况的请示");
-	    // docReceive.setDocTitle("关于向市物资保障及保供稳价组报送区级政务储备摸底和储备计划编制情况的请示");
+		// docSend.setDocTitle("北京市通州区商务局关于申请向市药监局有偿调用新冠抗原检测试剂的请示");
+	    // docReceive.setDocTitle("北京市通州区商务局关于申请向市药监局有偿调用新冠抗原检测试剂的请示");
 		// docReceive.setSendUser("zh");
 		// docReceive.setRegDate("2022-04-01");
 		// docReceive.setSendUserName("郑浩");
@@ -78,7 +78,7 @@ public class UpdateDocFileTest {
 	/* 替换公文正文 */
 	private static void addFileMapForDocBody(Map<String, List<AssoftFileObj>> eleFileMap) {
 		List<AssoftFileObj> fileObjs = new ArrayList<>();
-		fileObjs.add(build("e://doc/", "行政1742替换", ".pdf"));
+		fileObjs.add(build("e://doc/", "202 关于《通州区加强市政交通基础设施信息化及规划建设管理的工作方案》有关情况的请示", ".pdf"));
 		//fileObjs.add(build("e://doc/", "行政350", ".pdf"));
 		eleFileMap.put("docBody", fileObjs);
 		System.out.println("正文替换完毕！");
@@ -87,7 +87,7 @@ public class UpdateDocFileTest {
 	// 替换正文预览
 	private static void addFileMapForDocBodyFile(Map<String, List<AssoftFileObj>> eleFileMap) {
 		List<AssoftFileObj> fileObjs = new ArrayList<>();
-		fileObjs.add(build("e://doc/", "行政1742替换", ".pdf"));
+		fileObjs.add(build("e://doc/", "202 关于《通州区加强市政交通基础设施信息化及规划建设管理的工作方案》有关情况的请示", ".pdf"));
 		//fileObjs.add(build("e://doc/", "行政350", ".pdf"));
 
 		eleFileMap.put("docBodyFile", fileObjs);

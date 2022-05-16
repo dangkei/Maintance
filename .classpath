@@ -32,11 +32,13 @@
 	<classpathentry kind="lib" path="E:/HTSC/Repository/todo/todo.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/tomcat52"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/docLib"/>
-	<classpathentry kind="lib" path="/asopCommonTomcatLib57/aspwebCommon/aspwebCommon5.7.jar"/>
-	<classpathentry kind="lib" path="/asopCommonTomcatLib57/aspwebCommon/asopCloudClient-5.7.jar"/>
-	<classpathentry kind="lib" path="/asopCommonTomcatLib57/asopFullWeblib/asopPageDomain_v1.9Full.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/Tongzhou/asopCommonTomcatLib57/aspwebCommon/aspwebCommon5.7.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/Tongzhou/asopCommonTomcatLib57/aspwebCommon/asopCloudClient-5.7.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/Tongzhou/asopCommonTomcatLib57/asopFullWeblib/asopPageDomain_v1.9Full.jar"/>
 	<classpathentry kind="lib" path="E:/Java/repository/org/springframework/spring-context/3.2.1.RELEASE/spring-context-3.2.1.RELEASE.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/domino"/>
 	<classpathentry kind="lib" path="E:/Java/repository/commons-net/commons-net/3.3/commons-net-3.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tomcat"/>
+	<classpathentry kind="lib" path="D:/workspace/Technical/synAchvives_new/NCSO.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

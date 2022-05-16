@@ -51,7 +51,7 @@ public class UpdateBriefingTest {
 	 */
 	private static void updateBriefingReceive(BriefingReceiveAction briefingReceiveExtentAction, BriefingSendAction briefingSendExtentAction) {
 		//公文收文id
-		String briefingReceiveId = "1470930432907366402";
+		String briefingReceiveId = "1519932251020754945";
 		
 		ActionResultInfo<AschemaBriefingReceive> resultInfo = briefingReceiveExtentAction.loadBriefingReceive(briefingReceiveId);
 		AschemaBriefingReceive docReceive = resultInfo.getResult();  //获得收文文档实例
@@ -66,8 +66,8 @@ public class UpdateBriefingTest {
 		//docReceive.setFromUnitNameName("市政府办公厅");
 		//docReceive.setDocCodeValue("通财经建文〔2020〕457号");
 		//docSend.setDocCodeValue("通财经建文〔2020〕457号");
-		List<String> list= Arrays.asList("dmh");
-		List<String> names=Arrays.asList("董明慧");
+		List<String> list= new ArrayList<>();//Arrays.asList("dmh");
+		List<String> names=new ArrayList<>();//Arrays.asList("董明慧");
 
 		docReceive.setTransmitUser(list);
 		docReceive.setTransmitUserName(names);
@@ -79,8 +79,8 @@ public class UpdateBriefingTest {
 		System.out.println(docReceive.getReceiveUserName().toString());
 		Map<String, List<AssoftFileObj>> eleFileMap = new HashMap<>();		//文件列表对象
 		buildFileMap(eleFileMap, docSend);
-		addFileMapForDocBody(eleFileMap);				//更新简报正文
-		addFileMapForDocBodyFile(eleFileMap);			//更新简报正文预览
+		//addFileMapForDocBody(eleFileMap);				//更新简报正文
+		//addFileMapForDocBodyFile(eleFileMap);			//更新简报正文预览
 		//addFileMapForAttach(eleFileMap);				//更新简报附件
 		
 		briefingSendExtentAction.updateBriefingSend(docSend,eleFileMap);    //更新发文 , eleFileMap
